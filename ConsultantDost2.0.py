@@ -129,9 +129,15 @@ st.write("""
 st.write(f"""## ![alt-text](https://cdn-icons-png.flaticon.com/128/1189/1189175.png) Welcome:smiley:""")
 st.write("""### How can I help you today?""")
 st.write("""###### *Navigate to the left sidebar for more settings and info* """)
-
 agent_name="Consultant Dost"
-GROQ_API_KEY=st.secrets["api_key"]
+if inp_api_key!="":
+        groq_client = Groq(
+                api_key=inp_api_key #API KEY 
+        )
+else:
+        groq_client = Groq(
+                api_key=st.secrets["api_key"] 
+        )
 prompt=f"{st.secrets["sys_content"]} feel free to use your name that is {agent_name} if needed \
                                 to make reponse personal and interactive + {st.secrets["other_qualities"]} Maintain neat, clear and precise formatting of text",
 if "instruction" not in st.session_state:
