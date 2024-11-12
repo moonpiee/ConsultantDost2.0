@@ -1,5 +1,4 @@
 import streamlit as st
-from groq import Groq
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import HumanMessage,AIMessage
@@ -77,7 +76,7 @@ hide_default_format = """
        </style>
        """
 st.markdown(hide_default_format, unsafe_allow_html=True)
-
+GROQ_API_KEY=st.secrets["api_key"]
 def display_chathistory(session_id):
     if session_id in st.session_state:
         imcmh=st.session_state[session_id]
@@ -93,6 +92,7 @@ def display_chathistory(session_id):
             n=n+1
 def process_conv(user_query,model_name,temp,session_id):
     llm = ChatGroq(
+           api_key=GROQ_API_KEY,
            model=model_name,
            temperature=temp,
     )
