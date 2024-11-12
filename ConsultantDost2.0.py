@@ -118,7 +118,7 @@ def process_conv(user_query,model_name,temp,session_id):
     return response.content
 with st.sidebar:
         st.title("Settings")
-        api_key = st.text_input("Enter Your API Token here")
+        inp_api_key = st.text_input("Enter Your API Token here")
         model = st.selectbox("Select model", ("llama-3.1-70b-versatile","llama3-70b-8192", "llama3-8b-8192", "mixtral-8x7b-32768", "gemma2-9b-it", "gemma-7b-it", "llama-3.2-11b-text-preview"))
         temp = st.slider("Temperature",0.0,1.0,0.0)
 st.title("Consultant Dost")
