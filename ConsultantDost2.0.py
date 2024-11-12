@@ -132,7 +132,6 @@ st.write("""### How can I help you today?""")
 st.write("""###### *Navigate to the left sidebar for more settings and info* """)
 
 agent_name="Consultant Dost"
-other_qualities=st.secrets("qualities")
 prompt=f"{st.secrets["sys_content"]} feel free to use your name that is {agent_name} if needed \
                                 to make reponse personal and interactive + {st.secrets["other_qualities"]} Maintain neat, clear and precise formatting of text",
 if "instruction" not in st.session_state:
