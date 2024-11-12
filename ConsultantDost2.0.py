@@ -1,5 +1,5 @@
 import streamlit as st
-import os
+from groq import Groq
 from langchain_groq import ChatGroq
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.messages import HumanMessage,AIMessage
